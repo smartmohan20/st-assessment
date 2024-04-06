@@ -1,4 +1,4 @@
-function Solution() {
+const Solution = () => {
   return (
     <div className="Solution">
       <header className="Solution-header">
