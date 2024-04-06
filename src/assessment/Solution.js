@@ -1,4 +1,8 @@
 const Solution = () => {
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  
   return (
     <div className="Solution">
       <header className="Solution-header">
