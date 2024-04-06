@@ -9,7 +9,7 @@ Before you begin, ensure you have Node.js and Yarn installed on your machine.
 1. **Clone the repository**:
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/smartmohan20/st-assessment.git
     ```
 
 2. **Navigate to the project directory**:
