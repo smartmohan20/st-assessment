@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Plot from 'react-plotly.js';
 
 const X_ENDPOINT = 'https://retoolapi.dev/gDa8uC/data';
 const Y_ENDPOINT = 'https://retoolapi.dev/o5zMs5/data';
@@ -23,8 +24,8 @@ const Solution = () => {
 
       const dataX = await responseX.json();
       const dataY = await responseY.json();
-      setXData(dataX);
-      setYData(dataY);
+      setXData(dataX.slice(0, 50));
+      setYData(dataY.slice(0, 50));
     } catch (error) {
       setError(error);
     }
@@ -37,10 +38,22 @@ const Solution = () => {
   if (error) {
     return <div>Error: {error}</div>;
   }
+
+  // Structured plot data
+  const plotData = [{
+    x: xData?.map(item => item?.RandomNumber),
+    y: yData?.map(item => item?.RandomNumber),
+    mode: 'markers',
+    type: 'scatter'
+  }];
   
   return (
     <div>
-      <h3>Solution</h3>
+      <h3>Solution Plot</h3>
+      <Plot
+        data={plotData}
+        layout={{ width: 800, height: 600, title: 'Plot of x vs y' }}
+      />
     </div>
   );
 }
