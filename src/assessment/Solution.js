@@ -52,7 +52,16 @@ const Solution = () => {
       <h3>Solution Plot</h3>
       <Plot
         data={plotData}
-        layout={{ width: 800, height: 600, title: 'Plot of x vs y' }}
+        layout={{
+          width: 800,
+          height: 600,
+          title: 'Plot of x vs y',
+          xaxis: {
+            title: 'X Axis',
+          },
+          yaxis: {
+            title: 'Y Axis',
+          },}}
       />
     </div>
   );
